@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import pymysql
 import yaml
 from pathlib import Path
 
@@ -78,10 +79,19 @@ WSGI_APPLICATION = 'hospital_info_system.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+pymysql.install_as_MySQLdb()
+
+with open('hospital_info_system/mysql_setting.yaml', 'r') as f:
+    mysql_setting = yaml.safe_load(f)
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': mysql_setting['name'],
+        'USER': mysql_setting['user'],
+        'PASSWORD': mysql_setting['password'],
+        'HOST': mysql_setting['host'],
+        'PORT': mysql_setting['port'],
     }
 }
 
