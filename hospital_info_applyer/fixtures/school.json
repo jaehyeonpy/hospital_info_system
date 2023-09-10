@@ -1,0 +1,23 @@
+[
+    {
+        "model": "hospital_info_applyer.school",
+        "pk": 1,
+        "fields": {
+            "name": "snu"
+        }
+    },
+    {
+        "model": "hospital_info_applyer.school",
+        "pk": 2,
+        "fields": {
+            "name": "yeonsei"
+        }
+    },
+    {
+        "model": "hospital_info_applyer.school",
+        "pk": 3,
+        "fields": {
+            "name": "korea"
+        }
+    }
+]

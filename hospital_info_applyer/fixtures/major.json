@@ -1,0 +1,23 @@
+[
+    {
+        "model": "hospital_info_applyer.major",
+        "pk": 1,
+        "fields": {
+            "name": "dental surgeon"
+        }
+    },
+    {
+        "model": "hospital_info_applyer.major",
+        "pk": 2,
+        "fields": {
+            "name": "oral surgeon"
+        }
+    },
+    {
+        "model": "hospital_info_applyer.major",
+        "pk": 3,
+        "fields": {
+            "name": "prosthodontist"
+        }
+    }    
+]

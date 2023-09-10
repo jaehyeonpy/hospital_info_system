@@ -1,0 +1,23 @@
+[
+    {
+        "model": "hospital_info_applyer.doctor",
+        "pk": 1,
+        "fields": {
+            "name": "kim"
+        }
+    },
+    {
+        "model": "hospital_info_applyer.doctor",
+        "pk": 2,
+        "fields": {
+            "name": "lee"
+        }
+    },
+    {
+        "model": "hospital_info_applyer.doctor",
+        "pk": 3,
+        "fields": {
+            "name": "park"
+        }
+    }  
+]
