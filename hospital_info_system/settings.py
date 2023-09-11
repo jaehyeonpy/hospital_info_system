@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'hospital_info_applyer.apps.HospitalInfoApplyerConfig'
 ]
 
 MIDDLEWARE = [
@@ -124,7 +125,8 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = True
+# if true, django displays warning message when inserting the fixture data with past datetime field.
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
