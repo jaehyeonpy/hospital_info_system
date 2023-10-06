@@ -81,7 +81,7 @@ curl -XGET http://127.0.0.1:8000/hospital/JDQ4MTYyMiM1MSMkMSMkMCMkODkkMzgxMzUxIz
 }
 ```
 
-try other HTTP methods, other fixtures, too!
+try other HTTP methods for the api, other apis with other HTTP methods as seen in tests.py, too!
 
 
 <br>
