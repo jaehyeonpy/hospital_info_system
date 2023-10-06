@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-with open('hospital_info_system/secret_key.yaml', 'r') as f:
+with open(str(BASE_DIR)+'/hospital_info_system/secret_key.yaml', 'r') as f:
     secret_key = yaml.safe_load(f)
 
 SECRET_KEY = secret_key['secret_key']
@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'hospital_info_system.wsgi.application'
 
 pymysql.install_as_MySQLdb()
 
-with open('hospital_info_system/mysql_setting.yaml', 'r') as f:
+with open(str(BASE_DIR)+'/hospital_info_system/mysql_setting.yaml', 'r') as f:
     mysql_setting = yaml.safe_load(f)
 
 DATABASES = {
