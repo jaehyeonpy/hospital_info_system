@@ -11,7 +11,7 @@ class HospitalInfoApplyerTest(APITestCase):
 
     def setUp(self):
         self.client = APIClient()
-        self.url = 'https://127.0.0.1:{port}/{model}/{resource}'
+        self.url = 'http://127.0.0.1:{port}/{model}/{resource}'
         self.port = 8000
         self.format = 'json'
 
@@ -118,7 +118,7 @@ class HospitalInfoApplyerTest(APITestCase):
         self.assertEqual(one_school_delete_response.status_code, 204)
         self.assertEqual(one_doctor_delete_response.status_code, 204)
         self.assertEqual(one_hospital_delete_response.status_code, 204)
-
+        
     def test_patch(self):
         one_major_patch_response = self.client.patch(
             path=self.url.format(
