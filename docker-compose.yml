@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  mysql-8.1.0:
+    image: mysql:8.1.0
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+    command: >
+      mysqld
+      --log-bin=mysql-bin.log
+      --server-id 1
+      --binlog-format=row
+      --gtid_mode=on
+      --enforce-gtid-consistency=on
+    networks:
+      network:
+        ipv4_address: 172.0.0.2
+
+  hosp-info-sys:
+    build:
+      context: .
+      dockerfile: hospital_info_system.Dockerfile
+      args:
+        BASE_IMAGE: python:3.9.18-bookworm
+    command: 
+      - /bin/sh
+      - -ce
+      - |
+        sleep 30
+
+        apt update
+        
+        apt install -y jq
+        
+        apt install -y default-mysql-client
+        mysql -h mysql-8.1.0 -u root --execute "create database test;"
+        
+        cd hospital_info_system 
+        python manage.py makemigrations hospital_info_applyer
+        python manage.py migrate
+        
+        sleep infinity
+    ports:
+      - "8001:8000"
+    networks:
+      network:
+        ipv4_address: 172.0.0.3
+
+networks:
+  network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.0.0.0/24
+          gateway: 172.0.0.1
