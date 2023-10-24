@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hospital_info_applyer.apps.HospitalInfoApplyerConfig'
+    'rest_framework',
+    'hospital_info_applyer.apps.HospitalInfoApplyerConfig',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [

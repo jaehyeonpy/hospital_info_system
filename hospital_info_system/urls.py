@@ -14,8 +14,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from drf_yasg import openapi
+from rest_framework import permissions
+
 from django.urls import include, path
+from drf_yasg.views import get_schema_view
+
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="hospital_info_system API document",
+      default_version='V0.1',
+      contact=openapi.Contact(email="jaehyeonpy@gmail.com"),
+      license=openapi.License(name="MIT"),
+   ),
+   public=True,
+   permission_classes=(permissions.AllowAny,),
+)
 
 urlpatterns = [
     path('', include('hospital_info_applyer.urls')),
+    path('swagger/', schema_view.with_ui('swagger')),
 ]
