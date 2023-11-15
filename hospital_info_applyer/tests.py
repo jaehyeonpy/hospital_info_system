@@ -169,7 +169,7 @@ class HospitalInfoApplyerTest(APITestCase):
                 model='major',
                 resource=''
             ),
-            data={"name": "orthodontist"},
+            data={"id": "4", "name": "orthodontist"},
             format=self.format
         )
         school_post_response = self.client.post(
@@ -178,7 +178,7 @@ class HospitalInfoApplyerTest(APITestCase):
                 model='school',
                 resource=''
             ),
-            data={"name": "sogang"},
+            data={"id": "4", "name": "sogang"},
             format=self.format
         )
         doctor_post_response = self.client.post(
@@ -187,7 +187,7 @@ class HospitalInfoApplyerTest(APITestCase):
                 model='doctor',
                 resource=''
             ),
-            data={"name": "choi"},
+            data={"id": "4", "name": "choi"},
             format=self.format
         )
         hospital_post_response = self.client.post(
@@ -197,7 +197,7 @@ class HospitalInfoApplyerTest(APITestCase):
                 resource=''
             ),
             data={
-                "hospital_id": "JDQ4MTg4MSM1MSMkMSMkMCMkODkkMzgxMzUxIzExIyQxIyQzIyQ2MiQyNjE4MzIjNjEjJDEjJDQjJDgz", 
+                "hospital_id": "JDQ4MTg4MSM1MSMkMSMkMCMkODkkMzgxMzUxIzExIyQxIyQzIyQ2MiQyNjE4MzIjNjEjJDEjJDQjJDgz",
                 "hospital_name": "\uac74\uad6d\ub300\ud559\uad50\ubcd1\uc6d0", 
                 "class_code": 1, 
                 "class_code_name": "\uc0c1\uae09\uc885\ud569", 

@@ -21,12 +21,15 @@ MAX_LENGTH = 95
 
 
 class Major(models.Model):
+    id = models.PositiveSmallIntegerField(primary_key=True)
     name = models.CharField(max_length=MAX_LENGTH)
     
 class School(models.Model):
+    id = models.PositiveSmallIntegerField(primary_key=True)
     name = models.CharField(max_length=MAX_LENGTH)
 
 class Doctor(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=MAX_LENGTH)
     major = models.ForeignKey(
         Major, 
@@ -45,7 +48,7 @@ class Hospital(models.Model):
         primary_key=True
     )
     hospital_name = models.CharField(max_length=MAX_LENGTH)
-    class_code = models.IntegerField()
+    class_code = models.PositiveSmallIntegerField()
     class_code_name = models.CharField(max_length=MAX_LENGTH)
     phone = models.CharField(
         max_length=MAX_LENGTH, 
@@ -75,7 +78,7 @@ class Hospital(models.Model):
     intern_count = models.IntegerField()
     resident_count = models.IntegerField()
     fellow_doctor_count = models.IntegerField()
-    established_at = models.DateTimeField(null=True)
+    established_at = models.DateField(null=True)
     director = models.ForeignKey(
         Doctor, 
         on_delete=models.CASCADE,
