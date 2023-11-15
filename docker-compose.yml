@@ -35,12 +35,13 @@ services:
         apt install -y jq
         
         apt install -y default-mysql-client
-        mysql -h mysql-8.1.0 -u root --execute "create database test;"
+        mysql -h mysql-8.1.0 -u root --execute "create database hospital_info_system;"
         
         cd hospital_info_system 
         python manage.py makemigrations hospital_info_applyer
         python manage.py migrate
         
+        echo "now ready."
         sleep infinity
     ports:
       - "8001:8000"
